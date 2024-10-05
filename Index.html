@@ -4,54 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fica Comigo?</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #ffe5e5; /* Cor de fundo suave */
+        }
+
+        #Conteudo {
+            background: #f16464;
+            width: 90%;
+            max-width: 500px;
+            height: 300px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background: black;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #444; /* Efeito hover */
+        }
+    </style>
 </head>
-   
+
 <body>
     <div id="Conteudo">
-      <h2>Bora Ficar?</h2>
-      <button class="btn" onclick="sim()">Sim</button>
-      <button class="btn" onclick="desvia(this)" onmouseover="desvia(this)">Não</button>
+        <h2>Bora Ficar?</h2>
+        <button class="btn" onclick="sim()">Sim</button>
+        <button class="btn" onclick="desvia(this)" onmouseover="desvia(this)">Não</button>
     </div>
+
+    <script>
+        function sim(){
+            alert("Você aceitou ficar comigo! :)");
+        }
+
+        function desvia(t) {
+            var btn = t;
+            btn.style.position = "absolute";
+            btn.style.top = GeraPosicao(0, 80); // Limitado para não sair da tela
+            btn.style.left = GeraPosicao(0, 80); // Limitado para não sair da tela
+            console.log("Opa, Desviei...");
+        }
+
+        function GeraPosicao(min, max) {
+            return Math.random() * (max - min) + min + "%";
+        }
+    </script>
 </body>
-
-<style>
-    #Conteudo{
-        background : #f16464;
-        width : 100%;
-        height : 100%;
-        position : fixed;
-        top : 0;
-        left : 0;
-        padding : 10px;
-        text-align : center;
-        font-family: sans-serif;
-    }
-
-    .btn{
-        background: black;
-        COLOR: white;
-        border: none;
-        padding: 10px;
-        width: 80px;
-        border-radius: 5px;
-    }
-</style>
-
-<script>
-    function sim(){
-       alert("Você aceitou ficar comigo! :)")
-    }
-
-    function desvia(t) {
-        var btn = t;
-        btn.style.position = "absolute";
-        btn.style.top = GeraPosicao(0, 100);
-        btn.style.left = GeraPosicao(0, 100);
-        console.log("Opa, Desviei...");
-    }
-
-    function GeraPosicao (min, max) {
-        return (Math.random() * (max - min) + min) + "%";
-    }
-</script>
 </html>
